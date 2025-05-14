@@ -1,17 +1,10 @@
 import { SharedData } from '@/types';
 import { Link, usePage } from '@inertiajs/react';
-import { CircleUser, LogOut } from 'lucide-react';
 import AppLogo from '../app-logo';
 import { Button } from '../ui/button';
-import {
-    DropdownMenu,
-    DropdownMenuContent,
-    DropdownMenuGroup,
-    DropdownMenuItem,
-    DropdownMenuSeparator,
-    DropdownMenuTrigger,
-} from '../ui/dropdown-menu';
+import { DropdownMenu, DropdownMenuContent, DropdownMenuTrigger } from '../ui/dropdown-menu';
 import { UserInfo } from '../user-info';
+import { UserMenuContent } from '../user-menu-content';
 
 export default function Header() {
     const { auth } = usePage<SharedData>().props;
@@ -31,21 +24,7 @@ export default function Header() {
                                 </div>
                             </DropdownMenuTrigger>
                             <DropdownMenuContent align="end" className="w-56">
-                                <DropdownMenuGroup>
-                                    <DropdownMenuItem asChild>
-                                        <Link className="block w-full" href={route('profile.edit')}>
-                                            <CircleUser className="mr-1" />
-                                            Личный кабинет
-                                        </Link>
-                                    </DropdownMenuItem>
-                                    <DropdownMenuSeparator />
-                                    <DropdownMenuItem asChild>
-                                        <Link className="block w-full" method="post" href={route('logout')}>
-                                            <LogOut className="mr-1" />
-                                            Выход
-                                        </Link>
-                                    </DropdownMenuItem>
-                                </DropdownMenuGroup>
+                                <UserMenuContent user={user} />
                             </DropdownMenuContent>
                         </DropdownMenu>
                     ) : (
