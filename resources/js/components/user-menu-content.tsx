@@ -20,9 +20,9 @@ export function UserMenuContent({ user }: UserMenuContentProps) {
         <>
             <DropdownMenuGroup>
                 <DropdownMenuItem asChild>
-                    <Link className="block w-full" href={route('profile.edit')}>
+                    <Link className="block w-full" href={route('profile')}>
                         <CircleUser className="mr-1" />
-                        Личный кабинет
+                        Профиль
                     </Link>
                 </DropdownMenuItem>
                 {user.roles.includes('master') && (
